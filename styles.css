@@ -1,0 +1,152 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background-color: slategray;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    
+    
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    
+
+}
+
+header, main, footer {
+    padding: 10px;
+    
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+nav ul li {
+    margin: 5px 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.video{
+    width: 75%;
+    height: auto;
+}
+video {
+    border-radius: 20%;
+    
+}
+
+/*estilo formulario*/
+.p-form {
+  margin: 1%;
+  color: blueviolet;
+}
+
+.input-form {
+  text-align: center;
+  background-color: lightblue;
+  border-radius: 5px;
+  margin-top: 2%;
+  
+}
+  
+.input-form [type="text"]:focus {
+    padding: 10px 12px;
+    border: 1px solid blueviolet;
+
+}
+
+form {
+  margin: 15%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 70%;
+  text-align: center;
+  border-color: blue;
+  border-style: double;
+  background-color: lightseagreen;
+  border-radius: 10px;
+  color: gray;
+  align-content: center;
+}
+
+.h1-form {
+  font-family: monospace;
+  font-size: 45px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.boton-enviar {
+  margin-bottom: 5px;
+  font-family: cursive;
+}
+.boton-enviar:hover{
+    background-color: blueviolet;
+}
+.boton-enviar:active{
+    background-color: chartreuse;
+}
+
+#nosoy {
+  color: purple;
+  display: contents;
+}
+
+/* Media query para tabletas */
+@media (min-width: 600px) {
+    nav ul {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+}
+
+/* Media query para computadoras de escritorio */
+@media (min-width: 1024px) {
+    body {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header, footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    nav ul {
+        justify-content: flex-end;
+    }
+}
+
+
+/* Estilos para dispositivos móviles */
+.container {
+    display: flex;
+    flex-direction: column;
+    }
+
+
