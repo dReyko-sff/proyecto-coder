@@ -4,10 +4,10 @@
   box-sizing: border-box;
 }
 
+
 body {
   font-family: monospace;
-
-  background-color: slategray;
+   background-color: slategray;
   margin: 0;
   padding: 0;
   text-align: center;
