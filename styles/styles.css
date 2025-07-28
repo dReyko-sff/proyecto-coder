@@ -69,7 +69,11 @@ nav ul li a {
   font-weight: bold;
 }
 
-/* tipografias*/
+/* tipografias y fondos*/
+.body-gradient {
+  background-image: radial-gradient(circle, slategray, black);
+}
+
 h1 {
   color: antiquewhite;
   font-size: x-large;
@@ -79,11 +83,13 @@ h2 {
   font-family: monospace;
   font-size: xx-large;
   font-weight: bold;
+  color: whitesmoke;
 }
 
 p {
   font-family: monospace;
   font-size: xx-large;
+  color: whitesmoke;
 }
 
 span {
@@ -97,6 +103,10 @@ video {
   border-radius: 5%;
   border: 4px solid darkslateblue;
   box-shadow: 0 12px 28px darkslateblue;
+}
+video:hover {
+  box-shadow: 0 -10px 50px darkblue;
+  transition: all 1.2s ease;
 }
 
 .container-video {
@@ -138,14 +148,14 @@ video {
   position: relative;
   width: 32%;
 }
+.carousel:hover {
+  border: 5px solid darkred;
+  box-shadow: 0 -10px 50px darkred;
+  transition: all 1.2s ease;
+}
 
 .carousel-item img {
   pointer-events: none;
-}
-
-.carousel-inner {
-  border: 5px solid darkred;
-  box-shadow: 0 -10px 50px darkred;
 }
 
 /*estilo formulario*/
@@ -154,13 +164,17 @@ form {
   margin: 10px auto;
   padding: 30px;
   background-color: whitesmoke;
-  border: 2px solid darkslateblue;
+  border: 4px solid darkslateblue;
   border-radius: 10px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 6px;
+}
+form:hover {
+  box-shadow: 0 -10px 50px darkred;
+  transition: all 1.2s ease;
 }
 form .form-check {
   display: flex;
@@ -198,10 +212,12 @@ form .form-check .form-check-label {
   font-family: monospace;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.4s ease;
 }
 .btn-primary[type=submit]:hover {
-  background-color: rgb(53.64, 45.445, 103.555);
+  background-color: darkblue;
+  color: aqua;
+  transition: all 0.4s ease;
 }
 
 /* media queries*/
@@ -256,13 +272,36 @@ form .form-check .form-check-label {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    padding-top: 18vh;
+    padding-top: 22vh;
   }
   header {
     flex-direction: row;
   }
   nav ul {
     justify-content: flex-end;
+  }
+}
+/* animaciones */
+.h2-animacion {
+  font-size: 3rem;
+  font-family: monospace;
+  font-weight: bold;
+  background: linear-gradient(270deg, white, #888, crimson);
+  background-size: 800% 800%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: movergradiente 6s ease infinite;
+}
+
+@keyframes movergradiente {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 

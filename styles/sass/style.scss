@@ -20,6 +20,7 @@ body {
   text-align: center;
   margin: 0;
   padding: 0;
+ 
 }
 
 header {
@@ -82,7 +83,11 @@ nav {
   font-weight: bold;
 }
 
-/* tipografias*/
+/* tipografias y fondos*/
+
+.body-gradient {
+  background-image: radial-gradient(circle, slategray, black);
+}
 
 h1 {
   color: antiquewhite;
@@ -93,11 +98,13 @@ h2 {
   font-family: $font-main;
   font-size: xx-large;
   font-weight: bold;
+  color: whitesmoke;
 }
 
 p {
   font-family: $font-main;
   font-size: xx-large;
+  color: whitesmoke;
 }
 
 span {
@@ -113,6 +120,11 @@ video {
   border: 4px solid $border-color;
   box-shadow: 0 12px 28px $border-color;
 
+    &:hover {
+    box-shadow: 0 -10px 50px darkblue;
+    transition: all 1.2s ease;
+  }
+    
   
 }
 
@@ -160,16 +172,17 @@ video {
 .carousel {
   position: relative;
   width: 32%;
+   &:hover {
+ border: 5px solid $shadow-dark;
+  box-shadow: 0 -10px 50px $shadow-dark;
+  transition: all 1.2s ease;
+  }
 }
 
 .carousel-item img {
   pointer-events: none;
 }
 
-.carousel-inner {
-  border: 5px solid $shadow-dark;
-  box-shadow: 0 -10px 50px $shadow-dark;
-}
 
 /*estilo formulario*/
 
@@ -178,13 +191,18 @@ form {
   margin: 10px auto; 
   padding: 30px;
   background-color: whitesmoke;
-  border: 2px solid $border-color;
+  border: 4px solid $border-color;
   border-radius: 10px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 6px; 
+
+  &:hover {
+    box-shadow: 0 -10px 50px $shadow-dark;
+    transition: all 1.2s ease;
+  }
 
   .form-check {
     display: flex;
@@ -224,10 +242,12 @@ form {
   font-family: $font-main;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.4s ease;
 
   &:hover {
-    background-color: darken($border-color, 10%);
+    background-color:  (darkblue);
+    color: aqua;
+    transition: all 0.4s ease;
   }
 }
 
@@ -296,7 +316,7 @@ form {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    padding-top: 18vh;
+    padding-top: 22vh;
   }
 
   header {
@@ -307,3 +327,23 @@ form {
     justify-content: flex-end;
   }
 }
+
+/* animaciones */
+
+    .h2-animacion {
+       font-size: 3rem;
+      font-family: monospace;
+      font-weight: bold;
+      background: linear-gradient(270deg, white, #888, crimson);
+      background-size: 800% 800%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: movergradiente 6s ease infinite;
+    }
+
+
+    @keyframes movergradiente {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
