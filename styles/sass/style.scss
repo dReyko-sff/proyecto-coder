@@ -1,5 +1,71 @@
+/* mixin */
+
+@mixin sombra-roja($shadow-dark, $y: -10px, $blur: 28px) {
+  box-shadow: 0 $y $blur $shadow-dark;
+  transition: all 1.2s ease;
+}
+
+@mixin sombra-azul($color, $y: -10px, $blur: 28px) {
+  box-shadow: 0 $y $blur $color;
+  transition: all 1.2s ease;
+}
+
+
+
+@mixin efecto-gradiente {
+  font-size: 3rem;
+  font-family: monospace;
+  font-weight: bold;
+  background: linear-gradient(270deg, white, #888, crimson);
+  background-size: 800% 800%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: movergradiente 6s ease infinite;
+}
+
+@mixin efecto-metal {
+  font-size: x-large;
+  font-family: monospace;
+  font-weight: bold;
+  background: linear-gradient(270deg, white, #888,gray);
+  background-size: 800% 800%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: brillo-metal 9s ease infinite;
+}
+
+/* keyframes*/
+
+
+@keyframes movergradiente {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes brillo-metal {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
 /*variables*/
 
+$color: darkblue;
+$color-metal: darkgray;
 $font-main: monospace;
 $bg-body: slategray;
 $text-light: whitesmoke;
@@ -7,7 +73,7 @@ $text-dark: black;
 $border-color: darkslateblue;
 $shadow-dark: darkred;
 
-
+/* reseteo para todos los navegadores */
 * {
   padding: 0;
   margin: 0;
@@ -20,7 +86,6 @@ body {
   text-align: center;
   margin: 0;
   padding: 0;
- 
 }
 
 header {
@@ -90,8 +155,7 @@ nav {
 }
 
 h1 {
-  color: antiquewhite;
-  font-size: x-large;
+  @include efecto-metal;
 }
 
 h2 {
@@ -99,6 +163,9 @@ h2 {
   font-size: xx-large;
   font-weight: bold;
   color: whitesmoke;
+}
+.h2-animacion {
+  @include efecto-gradiente;
 }
 
 p {
@@ -118,14 +185,10 @@ video {
   height: auto;
   border-radius: 5%;
   border: 4px solid $border-color;
-  box-shadow: 0 12px 28px $border-color;
 
-    &:hover {
-    box-shadow: 0 -10px 50px darkblue;
-    transition: all 1.2s ease;
+  &:hover {
+    @include sombra-azul($color);
   }
-    
-  
 }
 
 .container-video {
@@ -144,8 +207,7 @@ video {
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 
   &:hover {
-    transform: scale(1.02);
-    box-shadow: 0 12px 28px $border-color;
+    @include sombra-roja($border-color);
   }
 }
 
@@ -157,25 +219,22 @@ video {
   height: auto;
   border-radius: 5%;
   border: 4px solid $border-color;
-  box-shadow: 0 12px 28px $border-color;
+  @include sombra-roja($border-color);
 
   &:hover {
-    transform: scale(1.08);
-    box-shadow: 0 12px 28px $border-color;
+    transform: scale(1.2);
+    @include sombra-roja($shadow-dark);
   }
 }
 
 /*estilo carrousel e imagenes*/
 
-
-
 .carousel {
   position: relative;
   width: 32%;
-   &:hover {
- border: 5px solid $shadow-dark;
-  box-shadow: 0 -10px 50px $shadow-dark;
-  transition: all 1.2s ease;
+  border: 5px solid $shadow-dark;
+  &:hover {
+   @include sombra-roja($shadow-dark)
   }
 }
 
@@ -183,12 +242,11 @@ video {
   pointer-events: none;
 }
 
-
 /*estilo formulario*/
 
 form {
   width: 50%;
-  margin: 10px auto; 
+  margin: 10px auto;
   padding: 30px;
   background-color: whitesmoke;
   border: 4px solid $border-color;
@@ -197,7 +255,7 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px; 
+  gap: 6px;
 
   &:hover {
     box-shadow: 0 -10px 50px $shadow-dark;
@@ -215,7 +273,6 @@ form {
     }
   }
 }
-
 
 .form-control {
   width: 100%;
@@ -245,33 +302,30 @@ form {
   transition: background-color 0.4s ease;
 
   &:hover {
-    background-color:  (darkblue);
+    background-color: (darkblue);
     color: aqua;
     transition: all 0.4s ease;
   }
 }
 
-
 /* media queries*/
 
 /* media queries celulares*/
 
-@media (min-width: 200px) {
+@media (min-width: 320px) {
   body {
     display: flex;
     justify-content: center;
     gap: 20px;
-    max-width: 1400px;
+    max-width: 100vw;
     margin: 0 auto;
     flex-direction: column;
     align-items: center;
-    padding-top: 52vh;
+    padding-top: 268px;
   }
 }
 
-
 /* Media query para tablets */
-
 
 @media (min-width: 600px) {
   nav ul {
@@ -290,7 +344,7 @@ form {
     margin: 0 auto;
     flex-direction: column;
     align-items: center;
-    padding-top: 28vh;
+    padding-top: 162px;
   }
 
   header,
@@ -302,9 +356,7 @@ form {
   }
 }
 
-
 /* Media query para computadoras de escritorio */
-
 
 @media (min-width: 1024px) {
   body {
@@ -316,7 +368,7 @@ form {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    padding-top: 22vh;
+    padding-top: 92px;
   }
 
   header {
@@ -328,22 +380,6 @@ form {
   }
 }
 
-/* animaciones */
-
-    .h2-animacion {
-       font-size: 3rem;
-      font-family: monospace;
-      font-weight: bold;
-      background: linear-gradient(270deg, white, #888, crimson);
-      background-size: 800% 800%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: movergradiente 6s ease infinite;
-    }
 
 
-    @keyframes movergradiente {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+
