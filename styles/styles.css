@@ -316,6 +316,7 @@ form .form-check .form-check-label {
     align-items: center;
     width: 100%;
     padding-top: 92px;
+    margin-top: 32px;
   }
   header {
     flex-direction: row;
@@ -325,4 +326,4 @@ form .form-check .form-check-label {
   }
 }
 
-/*# sourceMappingURL=styles.css.map */
+/*# sourceMappingURL=style.css.map */
