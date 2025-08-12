@@ -10,6 +10,8 @@ Agregamos técnicas de SEO como "description" y "keywords"
 
 Cambiamos el Icono que se ve reflejado en el nombre de la pagina en pestañas
 
+Creamos la cuenta en Vercel, linkeada con Github e hicimos el Deployment 
+
 
 
 
